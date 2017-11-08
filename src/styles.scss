@@ -25,7 +25,23 @@ header {
 	position: static;
 }
 
-.importMore {
+.import-more {
 	text-align: center;
 	padding: 10px;
+}
+
+.name {
+	min-width: 200px;
+}
+
+.profession {
+	text-align: center;
+}
+
+.traits {
+	text-align: left;
+}
+
+.has-children {
+	text-align: center;
 }

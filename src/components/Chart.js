@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import { Bar, Line, Pie } from 'react-chartjs-2';
+import { Bar } from 'react-chartjs-2';
 import chartFunctions from './prepareForGraph';
 
 class Chart extends Component {
 	constructor(props) {
 		super(props);
-		const totalTraits = chartFunctions.getTotals();
-		const averageTraits = chartFunctions.getAverages(totalTraits);
+		const banks = chartFunctions.getAllAverages();
 		this.state = {
 			chartData: {
 				labels: [
@@ -18,25 +17,64 @@ class Chart extends Component {
 				],
 				datasets: [
 					{
+						label: 'Blue Bank',
 						data: [
-							averageTraits.agreeableness,
-							averageTraits.extroversion,
-							averageTraits.conscientiousness,
-							averageTraits.openness,
-							averageTraits.neuroticism
+							banks.bluebank.agreeableness,
+							banks.bluebank.extroversion,
+							banks.bluebank.conscientiousness,
+							banks.bluebank.openness,
+							banks.bluebank.neuroticism
 						],
-						backgroundColor: ['blue', 'green', 'red', 'yellow', 'purple']
+						backgroundColor: 'blue'
+					},
+					{
+						label: 'Red Bank',
+						data: [
+							banks.redbank.agreeableness,
+							banks.redbank.extroversion,
+							banks.redbank.conscientiousness,
+							banks.redbank.openness,
+							banks.redbank.neuroticism
+						],
+						backgroundColor: 'red'
+					},
+					{
+						label: 'Green Bank',
+						data: [
+							banks.greenbank.agreeableness,
+							banks.greenbank.extroversion,
+							banks.greenbank.conscientiousness,
+							banks.greenbank.openness,
+							banks.greenbank.neuroticism
+						],
+						backgroundColor: 'green'
+					},
+					{
+						label: 'Purple Bank',
+						data: [
+							banks.purplebank.agreeableness,
+							banks.purplebank.extroversion,
+							banks.purplebank.conscientiousness,
+							banks.purplebank.openness,
+							banks.purplebank.neuroticism
+						],
+						backgroundColor: 'Purple'
+					},
+					{
+						label: 'All banks',
+						data: [
+							banks.allbanks.agreeableness,
+							banks.allbanks.extroversion,
+							banks.allbanks.conscientiousness,
+							banks.allbanks.openness,
+							banks.allbanks.neuroticism
+						],
+						backgroundColor: 'Black'
 					}
 				]
 			}
 		};
 	}
-
-	static defaultProps = {
-		displayTitle: true,
-		displayLegend: true,
-		legendPosition: 'bottom'
-	};
 
 	render() {
 		return (
@@ -45,11 +83,11 @@ class Chart extends Component {
 					data={this.state.chartData}
 					options={{
 						title: {
-							display: this.props.displayTitle,
-							text: 'Average Trait Levels'
+							text: 'Average Trait Levels Across All Customers Per Company',
+							display: true
 						},
 						legend: {
-							display: false
+							display: true
 						}
 					}}
 				/>

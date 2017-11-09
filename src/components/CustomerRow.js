@@ -6,7 +6,7 @@ const CustomerRow = ({ customer }) => (
 			{customer.title} {customer.first_name} {customer.last_name}
 		</td>
 		<td className="profession">{customer.profession}</td>
-		<td className="has-children">
+		<td className="children has-children">
 			{customer.has_children ? (
 				<span style={{ color: 'green', border: 0 }}>Yes</span>
 			) : (

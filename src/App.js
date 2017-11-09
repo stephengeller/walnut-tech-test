@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import walnutImage from './images/walnut.jpg';
+import walnutImage from './images/walnutPNG.png';
 import TablePage from './pages/TablePage';
 import Graphs from './pages/Graphs';
 import './css/styles.scss';
@@ -17,12 +17,12 @@ class App extends Component {
 	render() {
 		return (
 			<div className="app">
-				<header className="header">
-					<h1>
-						Walnut
-						<img alt="walnut" className="icon" src={walnutImage} />
-					</h1>
-					<Router>
+				<Router>
+					<header className="header">
+						<h1 className="navbar">
+							<span className="title">Walnut</span>
+							<img alt="walnut" className="icon" src={walnutImage} />
+						</h1>
 						<div>
 							<Link to="/" className="nav-link nav-link-left">
 								Table
@@ -33,8 +33,8 @@ class App extends Component {
 							<Route exact path="/" component={TablePage} />
 							<Route path="/graphs" component={Graphs} />
 						</div>
-					</Router>
-				</header>
+					</header>
+				</Router>
 			</div>
 		);
 	}

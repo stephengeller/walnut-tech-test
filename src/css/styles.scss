@@ -8,6 +8,7 @@ $line_color: #cccdcc;
 h1 {
 	margin-top: 0px;
 }
+
 table {
 	* {
 		border: $line_color 1px solid;
@@ -21,4 +22,9 @@ table {
 header {
 	text-align: center;
 	position: static;
+}
+
+.navbar {
+	border: 0;
+	border-radius: 0;
 }

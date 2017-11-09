@@ -1,26 +1,45 @@
 import React, { Component } from 'react';
 import CustomerRow from './CustomerRow';
+import FindMatchesButton from './FindMatchesButton';
 import customers from '../customers.json';
 
 class Table extends Component {
 	constructor() {
 		super();
 		this.state = {
-			customerNumber: 10
+			index: 0,
+			customerNumber: 10,
+			customerData: customers
 		};
 	}
 
 	loadMore() {
-		console.log('loading more');
 		this.setState({
 			customerNumber: this.state.customerNumber + 10
+		});
+	}
+
+	setDefaults() {
+		this.setState({
+			index: 0,
+			customerNumber: 10,
+			customerData: customers
+		});
+	}
+
+	changeCustomerData(customers) {
+		return this.setState({
+			customerData: customers
 		});
 	}
 
 	render() {
 		return (
 			<div>
-				<table>
+				<FindMatchesButton
+					changeCustomerData={this.changeCustomerData.bind(this)}
+				/>
+				<table className="tableSection">
 					<thead>
 						<tr>
 							<th className="name">Name</th>
@@ -30,8 +49,8 @@ class Table extends Component {
 						</tr>
 					</thead>
 					<tbody>
-						{customers
-							.slice(0, this.state.customerNumber)
+						{this.state.customerData
+							.slice(this.state.index, this.state.customerNumber)
 							.map(c => <CustomerRow customer={c} />)}
 					</tbody>
 				</table>
@@ -40,6 +59,9 @@ class Table extends Component {
 						Load more
 					</button>
 				</div>
+				<button onClick={this.setDefaults.bind(this)} className="btn">
+					Set Defaults
+				</button>
 			</div>
 		);
 	}

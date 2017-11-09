@@ -23,8 +23,8 @@ class Table extends Component {
 				<table>
 					<thead>
 						<tr>
-							<th>Name</th>
-							<th>Profession</th>
+							<th className="name">Name</th>
+							<th className="profession">Profession</th>
 							<th>Children</th>
 							<th>Traits</th>
 						</tr>

@@ -12,7 +12,6 @@ export default class Graphs extends React.Component {
 	render() {
 		return (
 			<div>
-				<h2>Graphs</h2>
 				<Chart />
 			</div>
 		);

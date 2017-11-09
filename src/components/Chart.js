@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { Bar, Line, Pie } from 'react-chartjs-2';
-import getAverages from './prepareForGraph';
+import chartFunctions from './prepareForGraph';
 
 class Chart extends Component {
 	constructor(props) {
 		super(props);
-		var traits = getAverages();
+		const totalTraits = chartFunctions.getTotals();
+		const averageTraits = chartFunctions.getAverages(totalTraits);
 		this.state = {
 			chartData: {
 				labels: [
@@ -17,13 +18,12 @@ class Chart extends Component {
 				],
 				datasets: [
 					{
-						label: 'Population',
 						data: [
-							traits.agreeableness,
-							traits.extroversion,
-							traits.conscientiousness,
-							traits.openness,
-							traits.neuroticism
+							averageTraits.agreeableness,
+							averageTraits.extroversion,
+							averageTraits.conscientiousness,
+							averageTraits.openness,
+							averageTraits.neuroticism
 						],
 						backgroundColor: ['blue', 'green', 'red', 'yellow', 'purple']
 					}

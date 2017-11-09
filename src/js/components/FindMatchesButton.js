@@ -1,4 +1,4 @@
-import customers from '../customers.json';
+import customers from '../../customers.json';
 import React, { Component } from 'react';
 
 class FindMatchesButton extends Component {
@@ -54,7 +54,7 @@ class FindMatchesButton extends Component {
 				<input
 					className="input-box"
 					ref="inputBox"
-					placeholder="Florence Ferry"
+					placeholder="Enter a name here"
 				/>
 				<button
 					onClick={() => this.findMatches(this.refs.inputBox.value)}

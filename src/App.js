@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import walnutImage from './images/walnutPNG.png';
-import TablePage from './pages/TablePage';
-import Graphs from './pages/Graphs';
+import TablePage from './js/pages/TablePage';
+import Graphs from './js/pages/Graphs';
 import './css/styles.scss';
 
 class App extends Component {

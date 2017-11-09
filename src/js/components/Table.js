@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import CustomerRow from './CustomerRow';
 import FindMatchesButton from './FindMatchesButton';
-import customers from '../customers.json';
+import customers from '../../customers.json';
 
 class Table extends Component {
 	constructor() {

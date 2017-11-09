@@ -1,4 +1,4 @@
-import customers from '../customers.json';
+import customers from '../../customers.json';
 
 const chartFunctions = {
 	getTotals() {

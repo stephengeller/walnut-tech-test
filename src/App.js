@@ -24,10 +24,10 @@ class App extends Component {
 							<img alt="walnut" className="icon" src={walnutImage} />
 						</h1>
 						<div>
-							<Link to="/" className="nav-link nav-link-left">
+							<Link to="/" className="nav-link nav-link-left" id='nav-table'>
 								Table
 							</Link>
-							<Link to="/graphs" className="nav-link nav-link-right">
+							<Link to="/graphs" className="nav-link nav-link-right" id='nav-graphs'>
 								Graphs
 							</Link>
 							<Route exact path="/" component={TablePage} />

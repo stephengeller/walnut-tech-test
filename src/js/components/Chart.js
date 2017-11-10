@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { Bar } from 'react-chartjs-2';
-import chartFunctions from './prepareForGraph';
+import ChartDataGenerator from './ChartDataGenerator';
 
 class Chart extends Component {
 	constructor(props) {
 		super(props);
-		const banks = chartFunctions.getAllAverages();
+		this.chartDataGenerator = new ChartDataGenerator();
+		this.banks = this.chartDataGenerator.getAllAverages();
 		this.state = {
 			chartData: {
 				labels: [
@@ -18,62 +19,42 @@ class Chart extends Component {
 				datasets: [
 					{
 						label: 'Blue Bank',
-						data: [
-							banks.bluebank.agreeableness,
-							banks.bluebank.extroversion,
-							banks.bluebank.conscientiousness,
-							banks.bluebank.openness,
-							banks.bluebank.neuroticism
-						],
+						data: this.formatBanks(this.banks.bluebank),
 						backgroundColor: 'blue'
 					},
 					{
 						label: 'Red Bank',
-						data: [
-							banks.redbank.agreeableness,
-							banks.redbank.extroversion,
-							banks.redbank.conscientiousness,
-							banks.redbank.openness,
-							banks.redbank.neuroticism
-						],
+						data: this.formatBanks(this.banks.redbank),
 						backgroundColor: 'red'
 					},
 					{
 						label: 'Green Bank',
-						data: [
-							banks.greenbank.agreeableness,
-							banks.greenbank.extroversion,
-							banks.greenbank.conscientiousness,
-							banks.greenbank.openness,
-							banks.greenbank.neuroticism
-						],
+						data: this.formatBanks(this.banks.greenbank),
 						backgroundColor: 'green'
 					},
 					{
 						label: 'Purple Bank',
-						data: [
-							banks.purplebank.agreeableness,
-							banks.purplebank.extroversion,
-							banks.purplebank.conscientiousness,
-							banks.purplebank.openness,
-							banks.purplebank.neuroticism
-						],
+						data: this.formatBanks(this.banks.purplebank),
 						backgroundColor: 'Purple'
 					},
 					{
 						label: 'All banks',
-						data: [
-							banks.allbanks.agreeableness,
-							banks.allbanks.extroversion,
-							banks.allbanks.conscientiousness,
-							banks.allbanks.openness,
-							banks.allbanks.neuroticism
-						],
+						data: this.formatBanks(this.banks.allbanks),
 						backgroundColor: 'Black'
 					}
 				]
 			}
 		};
+	}
+
+	formatBanks(bank) {
+		return [
+			bank.agreeableness,
+			bank.extroversion,
+			bank.conscientiousness,
+			bank.openness,
+			bank.neuroticism
+		];
 	}
 
 	render() {

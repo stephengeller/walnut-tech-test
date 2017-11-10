@@ -58,7 +58,7 @@ class FindMatchesButton extends Component {
 				/>
 				<button
 					onClick={() => this.findMatches(this.refs.inputBox.value)}
-					className="btn input-button"
+					className="btn input-button" id="find-matches-button"
 				>
 					Search for name
 				</button>

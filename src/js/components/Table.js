@@ -51,7 +51,7 @@ class Table extends Component {
 					<tbody>
 						{this.state.customerData
 							.slice(this.state.index, this.state.customerNumber)
-							.map(c => <CustomerRow customer={c} />)}
+							.map(c => <CustomerRow key={c.id} customer={c} />)}
 					</tbody>
 				</table>
 				<div className="import-more">
